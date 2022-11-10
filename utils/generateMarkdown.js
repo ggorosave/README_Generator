@@ -22,6 +22,48 @@ function renderLicenseSection(github, repoName, license) {
 function generateMarkdown({ github, email, title, repoName, description, installation, usage, license, contributing, tests }) {
   return `# ${title}
 ${renderLicenseBadge(license)}
+
+## Description
+${description}
+
+## Table of Contents 
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+
+To install the necessary dependencies, run the following conmmand:
+
+\`\`\`
+${installation}
+\`\`\`
+
+## Usage
+
+${usage}
+
+${renderLicenseSection(github, repoName, license)}
+
+## Contributing
+
+${contributing}
+
+## Tests
+
+To run tests, run the following command:
+\`\`\`
+${tests}
+\`\`\`
+
+## Questions
+
+If you have any questions about the repo, contact me at 	[${email}](mailto:${email}). Find more of my work at 	[${github}](https://https://github.com/${github}).
 `;
 }
 
