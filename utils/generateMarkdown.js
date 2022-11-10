@@ -75,10 +75,17 @@ function renderContributingSection(contributing) {
   return contributing === '' ? '' : `## Contributing
 
   ${contributing}`;
-}
+};
 
 // Renders Tests section
+function renderTestsSection(tests) {
+  return tests === '' ? '' : `## Tests
 
+To run tests, run the following command:
+\`\`\`
+${tests}
+\`\`\``;
+};
 
 // Generates the markdown with the given data
 function generateMarkdown({ github, email, title, repoName, description, installation, usage, license, contributing, tests }) {
@@ -98,12 +105,7 @@ ${renderLicenseSection(github, repoName, license)}
 
 ${renderContributingSection(contributing)}
 
-## Tests
-
-To run tests, run the following command:
-\`\`\`
-${tests}
-\`\`\`
+${renderTestsSection(tests)}
 
 ## Questions
 
