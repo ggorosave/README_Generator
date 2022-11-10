@@ -22,6 +22,11 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'repoName',
+        message: 'What is the name of your project repo?',
+    },
+    {
+        type: 'input',
         name: 'description',
         message: 'Write a short description of your project:',
     },
