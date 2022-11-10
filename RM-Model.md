@@ -1,6 +1,5 @@
-![License](https://img.shields.io/badge/License-MIT-blue)
-
 # Project Title
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## Description
 
