@@ -64,21 +64,36 @@ function writeToFile(fileName, data) { }
 
 // TODO: Create a function to initialize app
 function init() {
+
+    // Logs instructions on screen
+    console.log('=================================INSTRUCTIONS=================================')
+    console.log('')
+    console.log('Welcome to the README generator!')
+    console.log('Answer the following questions to generate a README for your GitHub project.')
+    console.log('If you want to exclude a section from your README or enter it manually, leave the answer blank.')
+    console.log('(Do not exclude the description, GitHub username, or email.)')
+    console.log('')
+    console.log('==============================================================================')
+    console.log('')
+
     inquirer
-    .prompt(questions)
-    .then((data) => {
+        .prompt(questions)
+        .then((data) => {
 
-        // Delete Later
-        console.log('====data====');
-        console.log(data);
-        console.log('====data====');
+            // Delete Later
+            console.log('====data====');
+            console.log(data);
+            console.log('====data====');
 
-        console.log('----MD----');
-        console.log(generateMarkdown(data));
-        console.log('----MD----');
-    }
-    );
+            console.log('----MD----');
+            console.log(generateMarkdown(data));
+            console.log('----MD----');
+            fs.writeFile('README.md', generateMarkdown(data), (error) => error ? console.log(error) : console.log("Generating README..."));
+        }
+        );
 }
 
 // Function call to initialize app
-init();
+// init();
+
+
