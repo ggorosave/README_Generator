@@ -3,7 +3,7 @@ function renderTableOfContents(installation, usage, license, contributing, tests
   // installation, usage, licence
   if (installation === '' &&
     usage === '' &&
-    license === '' &&
+    license === 'None' &&
     contributing === '' &&
     tests === '') {
     return '';
@@ -16,7 +16,7 @@ function renderTableOfContents(installation, usage, license, contributing, tests
     return usage === '' ? '' : `- [Usage](#usage)`;
   };
   function includeLicenseCheck(license) {
-    return license === '' ? '' : `- [License](#license)`
+    return license === 'None' ? '' : `- [License](#license)`
   };
   function includeContributeCheck(contributing) {
     return contributing === '' ? '' : `- [Contributing](#contributing)`;
@@ -25,32 +25,35 @@ function renderTableOfContents(installation, usage, license, contributing, tests
     return tests === '' ? '' : `- [Tests](#tests)`;
   };
 
-  return `## Table of Contents 
+  return `
+## Table of Contents 
 
-  ${includeInstallCheck(installation)}
-  ${includeUsageCheck(usage)}
-  ${includeLicenseCheck(license)}
-  ${includeContributeCheck(contributing)}
-  ${includeTestsCheck(tests)}
-  - [Questions](#questions)`
+${includeInstallCheck(installation)}
+${includeUsageCheck(usage)}
+${includeLicenseCheck(license)}
+${includeContributeCheck(contributing)}
+${includeTestsCheck(tests)}
+- [Questions](#questions)`
 };
 
 // Renders installation section
 function renderInstallationSection(installation) {
-  return installation === '' ? '' : `## Installation
+  return installation === '' ? '' : `
+## Installation
 
-  To install the necessary dependencies, run the following conmmand:
+To install the necessary dependencies, run the following conmmand:
   
-  \`\`\`
-  ${installation}
-  \`\`\``
+\`\`\`
+${installation}
+\`\`\``
 };
 
 // Renders Usage section
 function renderUsageSection(usage) {
-  return usage === '' ? '' : `## Usage
+  return usage === '' ? '' : `
+## Usage
 
-  ${usage}`
+${usage}`
 };
 
 // Renders license badge when the user  includes a license
@@ -66,20 +69,24 @@ function renderLicenseLink(github, repoName, license) {
 
 // Renders the license section if the user selects a license
 function renderLicenseSection(github, repoName, license) {
-  return license === 'None' ? '' : `## License
+  return license === 'None' ? '' : `
+## License
+
 This project is licensed under the ${renderLicenseLink(github, repoName, license)} license.`;
 };
 
 // Renders Contributing section
 function renderContributingSection(contributing) {
-  return contributing === '' ? '' : `## Contributing
+  return contributing === '' ? '' : `
+## Contributing
 
-  ${contributing}`;
+${contributing}`;
 };
 
 // Renders Tests section
 function renderTestsSection(tests) {
-  return tests === '' ? '' : `## Tests
+  return tests === '' ? '' : `
+## Tests
 
 To run tests, run the following command:
 \`\`\`
@@ -94,17 +101,11 @@ ${renderLicenseBadge(license)}
 
 ## Description
 ${description}
-
 ${renderTableOfContents(installation, usage, license, contributing, tests)}
-
 ${renderInstallationSection(installation)}
-
 ${renderUsageSection(usage)}
-
 ${renderLicenseSection(github, repoName, license)}
-
 ${renderContributingSection(contributing)}
-
 ${renderTestsSection(tests)}
 
 ## Questions

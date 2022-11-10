@@ -1,9 +1,9 @@
-// TODO: Include packages needed for this application
+// Pgit ackages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
-// TODO: Create an array of questions for user input
+//An array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -44,7 +44,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What license should your project have?',
-        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'MPL 2.0', 'BSL 1.0', 'None',],
+        choices: ['MIT', 'APACHE_2.0', 'GPL_3.0', 'MPL_2.0', 'BSL_1.0', 'None',],
     },
     {
         type: 'input',
