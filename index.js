@@ -1,9 +1,10 @@
-// Pgit ackages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+// module import
 const generateMarkdown = require('./utils/generateMarkdown.js')
 
-//An array of questions for user input
+// An array of questions for user input
 const questions = [
     {
         type: 'input',
