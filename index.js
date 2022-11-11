@@ -1,8 +1,9 @@
-// TODO: Include packages needed for this application
+// Pgit ackages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js')
 
-// TODO: Create an array of questions for user input
+//An array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -21,8 +22,13 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'repoName',
+        message: 'What is the name of your project repo?',
+    },
+    {
+        type: 'input',
         name: 'description',
-        message: 'Write a short description of your projec:',
+        message: 'Write a short description of your project:',
     },
     {
         type: 'input',
@@ -38,7 +44,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What license should your project have?',
-        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'MPL 2.0', 'BSL 1.0', 'None',],
+        choices: ['MIT', 'APACHE_2.0', 'GPL_3.0', 'MPL_2.0', 'BSL_1.0', 'None',],
     },
     {
         type: 'input',
@@ -53,22 +59,36 @@ const questions = [
 
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+// Writes README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, generateMarkdown(data), (error) => error ? console.log(error) : console.log("Generating README..."));
+ }
 
-// TODO: Create a function to initialize app
+// Initializes app
 function init() {
-    inquirer
-    .prompt(questions)
-    .then((data) => {
 
-        // Delete Later
-        console.log('====data====');
-        console.log(data);
-        console.log('====data====');
-    }
-    );
+    // Logs instructions on screen
+    console.log('=================================INSTRUCTIONS=================================')
+    console.log('')
+    console.log('Welcome to the README generator!')
+    console.log('Answer the following questions to generate a README for your GitHub project.')
+    console.log('If you want to exclude a section from your README or enter it manually, leave the answer blank.')
+    console.log('(Do not exclude the description, GitHub username, or email.)')
+    console.log('')
+    console.log('==============================================================================')
+    console.log('')
+
+    inquirer
+        .prompt(questions)
+        .then((data) => {
+            
+            // Calls the writeToFile function
+            writeToFile("README.md", data);
+        }
+        );
 }
 
 // Function call to initialize app
 init();
+
+
