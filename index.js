@@ -59,10 +59,12 @@ const questions = [
 
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+// Writes README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, generateMarkdown(data), (error) => error ? console.log(error) : console.log("Generating README..."));
+ }
 
-// TODO: Create a function to initialize app
+// Initializes app
 function init() {
 
     // Logs instructions on screen
@@ -79,16 +81,9 @@ function init() {
     inquirer
         .prompt(questions)
         .then((data) => {
-
-            // Delete Later
-            console.log('====data====');
-            console.log(data);
-            console.log('====data====');
-
-            console.log('----MD----');
-            console.log(generateMarkdown(data));
-            console.log('----MD----');
-            fs.writeFile('README.md', generateMarkdown(data), (error) => error ? console.log(error) : console.log("Generating README..."));
+            
+            // Calls the writeToFile function
+            writeToFile("README.md", data);
         }
         );
 }

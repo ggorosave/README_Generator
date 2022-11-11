@@ -41,7 +41,7 @@ function renderInstallationSection(installation) {
   return installation === '' ? '' : `
 ## Installation
 
-To install the necessary dependencies, run the following conmmand:
+To install the necessary dependencies after cloning the repo, run the following conmmand(s):
   
 \`\`\`
 ${installation}
