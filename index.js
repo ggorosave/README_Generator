@@ -84,7 +84,7 @@ function init() {
         .then((data) => {
             
             // Calls the writeToFile function
-            writeToFile("README.md", data);
+            writeToFile("sampleREADME.md", data);
         }
         );
 }
