@@ -10,6 +10,8 @@ https://user-images.githubusercontent.com/103039442/201791134-4d80d29d-8610-4236
 
 [Google Drive Video](https://drive.google.com/file/d/1__4gJGeHcsvUnzt0rgrH_UAOkKANsxWk/view?usp=share_link)
 
+You can also view the [sample README](https://github.com/ggorosave/README_Generator/blob/main/sampleREADME.md) from the demo video. 
+
 
 ## Table of Contents 
 
